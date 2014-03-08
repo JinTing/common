@@ -30,7 +30,7 @@ func Now() string {
 			return fmt.Sprintf("%d-%02d-%02d %02d:%02d:%02d\n", year, i+1, day, hour, min, sec)
 		}
 	}
-	return nil
+	return ""
 }
 
 //返回包含时区的本地时间
