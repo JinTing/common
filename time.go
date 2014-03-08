@@ -1,6 +1,7 @@
 package common
 
 import (
+	"errors"
 	"fmt"
 	"time"
 )
@@ -21,16 +22,16 @@ var months = [...]string{
 }
 
 // 返回字符串格式的本地时间
-func Now() string {
+func Now() (string, error) {
 	now := time.Now().Local()
 	year, mon, day := now.Date()
 	hour, min, sec := now.Clock()
 	for i, v := range months {
 		if mon.String() == v {
-			return fmt.Sprintf("%d-%02d-%02d %02d:%02d:%02d\n", year, i+1, day, hour, min, sec)
+			return fmt.Sprintf("%d-%02d-%02d %02d:%02d:%02d\n", year, i+1, day, hour, min, sec), nil
 		}
 	}
-	return ""
+	return "", errors.New("month convert error")
 }
 
 //返回包含时区的本地时间
