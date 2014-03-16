@@ -21,7 +21,7 @@ var months = [...]string{
 	"December",
 }
 
-// 返回字符串格式的本地时间
+// 返回字符串格式的本地时间 2014-03-17 00:00:00
 func Now() (string, error) {
 	now := time.Now().Local()
 	year, mon, day := now.Date()
